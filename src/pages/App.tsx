@@ -1,4 +1,7 @@
 import * as React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+var injectTapEventPlugin = require('react-tap-event-plugin');
+injectTapEventPlugin();
 
 interface AppPropsI {
   children: Object;
@@ -7,9 +10,9 @@ interface AppPropsI {
 class App extends React.Component<AppPropsI, {}> {
   render() {
     return (
-      <div>
+      <MuiThemeProvider>
         {this.props.children}
-      </div>
+      </MuiThemeProvider>
     );
   }
 }

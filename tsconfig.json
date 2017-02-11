@@ -18,7 +18,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "pretty": true,
-    "types" : ["jest", "react-router"]
+    "types" : ["jest", "node", "material-ui"]
   },
   "exclude": [
     "node_modules",
