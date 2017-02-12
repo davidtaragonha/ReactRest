@@ -4,13 +4,13 @@ import {TextField} from 'material-ui';
 import {browserHistory} from 'react-router';
 
 class Login extends React.Component<{}, {}> {
-  constructor() {
-    super();
+  constructor(props: Object) {
+    super(props);
     this.handleSignIn = this.handleSignIn.bind(this);
   }
 
   handleSignIn() {
-    browserHistory.push('/main');
+    browserHistory.replace('/main');
   }
 
   render() {

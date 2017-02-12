@@ -1,16 +1,21 @@
 import * as React from 'react';
-import {AppBar} from 'material-ui';
+import HeaderApp from '../components/headerApp';
 
 interface MainPropsI {
   children: Object;
 }
 
 class Main extends React.Component<MainPropsI, {}> {
+  constructor(props: MainPropsI) {
+    super(props);
+  }
+
   render() {
     return (
       <div>
-        <AppBar
-         title="Title"
+        <HeaderApp
+          title="Infinity"
+          menuItems={['M1', 'M2']}
         />
         {this.props.children}
       </div>
