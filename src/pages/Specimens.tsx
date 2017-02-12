@@ -1,4 +1,5 @@
 import * as React from 'react';
+import SpecimenCardContainer from '../containers/SpecimenCardContainer';
 
 class Specimens extends React.Component<{}, {}> {
   constructor(props: Object) {
@@ -7,9 +8,7 @@ class Specimens extends React.Component<{}, {}> {
 
   render() {
     return (
-      <div>
-        Manage Specimens
-      </div>
+      <SpecimenCardContainer />
     );
   }
 }
