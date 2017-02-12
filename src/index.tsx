@@ -6,6 +6,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './pages/App';
 import Login from './pages/Login';
 import Main from './pages/Main';
+import Specimens from './pages/Specimens';
 
 const store = configureStore();
 
@@ -14,7 +15,9 @@ ReactDOM.render(
     <Router history={browserHistory} >
       <Route path="/" component={App}>
         <IndexRoute component={Login} />
-        <Route path="/main" component={Main} />
+        <Route path="main" component={Main}>
+          <Route path="specimens" component={Specimens} />
+        </Route>
       </Route>
     </Router>
   </Provider>,

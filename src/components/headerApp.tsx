@@ -2,6 +2,7 @@ import * as React from 'react';
 import {AppBar} from 'material-ui';
 import {Drawer} from 'material-ui';
 import {MenuItem} from 'material-ui';
+import {browserHistory} from 'react-router';
 
 interface HeaderPropsI {
   title: string;
@@ -18,12 +19,18 @@ class HeaderApp extends React.Component<HeaderPropsI, HeaderStateI> {
     super(props);
     this.state = {open: false};
     this.handleShowMenu = this.handleShowMenu.bind(this);
+    this.handleNavItem = this.handleNavItem.bind(this);
   }
 
   handleShowMenu (event: Object) {
     this.setState((prevState, props) => {
       return {open: !prevState.open};
     });
+  }
+
+  handleNavItem (event: Object) {
+    browserHistory.replace('/main/specimens');
+    this.setState({open: false});
   }
 
   render() {
@@ -39,7 +46,7 @@ class HeaderApp extends React.Component<HeaderPropsI, HeaderStateI> {
          open={this.state.open}
          onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem>Menu 1</MenuItem>
+          <MenuItem onTouchTap={this.handleNavItem}>Specimens</MenuItem>
           <MenuItem>Menu 2</MenuItem>
         </Drawer>
       </div>
