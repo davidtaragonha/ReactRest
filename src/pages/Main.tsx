@@ -11,7 +11,6 @@ class Main extends React.Component<MainPropsI, {}> {
       <div>
         <AppBar
          title="Title"
-         iconClassNameRight="muidocs-icon-navigation-expand-more"
         />
         {this.props.children}
       </div>

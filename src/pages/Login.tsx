@@ -1,8 +1,18 @@
 import * as React from 'react';
 import {RaisedButton} from 'material-ui';
 import {TextField} from 'material-ui';
+import {browserHistory} from 'react-router';
 
 class Login extends React.Component<{}, {}> {
+  constructor() {
+    super();
+    this.handleSignIn = this.handleSignIn.bind(this);
+  }
+
+  handleSignIn() {
+    browserHistory.push('/main');
+  }
+
   render() {
     return (
       <div>
@@ -17,7 +27,7 @@ class Login extends React.Component<{}, {}> {
           type="password"
         />
         <br />
-        <RaisedButton label="Sign in" />
+        <RaisedButton label="Sign in" onClick={this.handleSignIn}/>
       </div>
     );
   }
