@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import SpecimenGrid from '../components/specimenGrid';
+import GroupGrid from '../components/groupGrid';
 
-class SpecimenCardContainer extends React.Component<{}, {}> {
+class GroupCardContainer extends React.Component<{}, {}> {
   constructor(props: Object) {
     super(props);
   }
@@ -11,11 +11,11 @@ class SpecimenCardContainer extends React.Component<{}, {}> {
     return (
       <Card>
        <CardHeader
-         title="Specimens"
+         title="GroupGrid"
          subtitle="Maintenance"
        />
        <CardText>
-           <SpecimenGrid />
+           <GroupGrid />
        </CardText>
        <CardActions>
        </CardActions>
@@ -24,4 +24,4 @@ class SpecimenCardContainer extends React.Component<{}, {}> {
   }
 }
 
-export default SpecimenCardContainer;
+export default GroupCardContainer;

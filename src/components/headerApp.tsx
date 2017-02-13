@@ -20,6 +20,7 @@ class HeaderApp extends React.Component<HeaderPropsI, HeaderStateI> {
     this.state = {open: false};
     this.handleShowMenu = this.handleShowMenu.bind(this);
     this.handleNavItem = this.handleNavItem.bind(this);
+    this.handleNavItem2 = this.handleNavItem2.bind(this);
   }
 
   handleShowMenu (event: Object) {
@@ -30,6 +31,11 @@ class HeaderApp extends React.Component<HeaderPropsI, HeaderStateI> {
 
   handleNavItem (event: Object) {
     browserHistory.replace('/main/specimens');
+    this.setState({open: false});
+  }
+
+  handleNavItem2 (event: Object) {
+    browserHistory.replace('/main/groups');
     this.setState({open: false});
   }
 
@@ -47,7 +53,7 @@ class HeaderApp extends React.Component<HeaderPropsI, HeaderStateI> {
          onRequestChange={(open) => this.setState({open})}
         >
           <MenuItem onTouchTap={this.handleNavItem}>Specimens</MenuItem>
-          <MenuItem>Menu 2</MenuItem>
+          <MenuItem onTouchTap={this.handleNavItem2}>Groups</MenuItem>
         </Drawer>
       </div>
     );

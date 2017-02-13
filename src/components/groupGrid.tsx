@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Table, TableBody, TableHeader} from 'material-ui/Table';
 import {TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
-class SpecimenGrid extends React.Component<{}, {}> {
+class GroupGrid extends React.Component<{}, {}> {
   constructor(props: Object) {
     super(props);
   }
@@ -18,6 +18,7 @@ class SpecimenGrid extends React.Component<{}, {}> {
         </TableRow>
       </TableHeader>
       <TableBody>
+      {}
         <TableRow>
           <TableRowColumn>4</TableRowColumn>
           <TableRowColumn>Steve Brown</TableRowColumn>
@@ -29,4 +30,4 @@ class SpecimenGrid extends React.Component<{}, {}> {
   }
 }
 
-export default SpecimenGrid;
+export default GroupGrid;
