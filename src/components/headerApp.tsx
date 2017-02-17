@@ -1,42 +1,48 @@
 import * as React from 'react';
 import {AppBar} from 'material-ui';
 import {Drawer} from 'material-ui';
-import {MenuItem} from 'material-ui';
+import MenuItem from './menuItem';
 import {browserHistory} from 'react-router';
 
 interface HeaderPropsI {
   title: string;
-  menuItems: Array<string>;
+  menuItems: Array<
+    {
+      name: string;
+      path: string;
+    }
+  >;
 }
 
 interface HeaderStateI {
   open: boolean;
 }
 
-/*TODO -> RENDER MENUITEMS*/
 class HeaderApp extends React.Component<HeaderPropsI, HeaderStateI> {
   constructor(props: HeaderPropsI) {
     super(props);
     this.state = {open: false};
-    this.handleShowMenu = this.handleShowMenu.bind(this);
-    this.handleNavItem = this.handleNavItem.bind(this);
-    this.handleNavItem2 = this.handleNavItem2.bind(this);
   }
 
-  handleShowMenu (event: Object) {
+  handleShowMenu = (event: Object) => {
     this.setState((prevState, props) => {
       return {open: !prevState.open};
     });
   }
 
-  handleNavItem (event: Object) {
-    browserHistory.replace('/main/specimens');
+  handleNavItem = (path: string) => {
+    browserHistory.replace(path);
     this.setState({open: false});
   }
 
-  handleNavItem2 (event: Object) {
-    browserHistory.replace('/main/groups');
-    this.setState({open: false});
+  renderRows() {
+    return this.props.menuItems.map(item =>
+      <MenuItem
+        {...item}
+        key={item.name}
+        onTouchTap={this.handleNavItem}
+      />
+    );
   }
 
   render() {
@@ -52,8 +58,7 @@ class HeaderApp extends React.Component<HeaderPropsI, HeaderStateI> {
          open={this.state.open}
          onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onTouchTap={this.handleNavItem}>Specimens</MenuItem>
-          <MenuItem onTouchTap={this.handleNavItem2}>Groups</MenuItem>
+          {this.renderRows()}
         </Drawer>
       </div>
     );

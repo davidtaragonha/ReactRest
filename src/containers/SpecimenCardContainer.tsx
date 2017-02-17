@@ -1,5 +1,7 @@
 import * as React from 'react';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {FloatingActionButton} from 'material-ui';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 import SpecimenGrid from '../components/specimenGrid';
 
 class SpecimenCardContainer extends React.Component<{}, {}> {
@@ -15,7 +17,10 @@ class SpecimenCardContainer extends React.Component<{}, {}> {
          subtitle="Maintenance"
        />
        <CardText>
-           <SpecimenGrid />
+         <SpecimenGrid />
+         <FloatingActionButton>
+          <ContentAdd />
+        </FloatingActionButton>
        </CardText>
        <CardActions>
        </CardActions>

@@ -7,24 +7,30 @@ class SpecimenGrid extends React.Component<{}, {}> {
     super(props);
   }
 
+  renderRows(): JSX.Element {
+    return (
+      <TableRow>
+        <TableRowColumn>4</TableRowColumn>
+        <TableRowColumn>Steve Brown</TableRowColumn>
+        <TableRowColumn>Employed</TableRowColumn>
+      </TableRow>
+    );
+  }
+
   render() {
     return (
       <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHeaderColumn>ID</TableHeaderColumn>
-          <TableHeaderColumn>Name</TableHeaderColumn>
-          <TableHeaderColumn>Status</TableHeaderColumn>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        <TableRow>
-          <TableRowColumn>4</TableRowColumn>
-          <TableRowColumn>Steve Brown</TableRowColumn>
-          <TableRowColumn>Employed</TableRowColumn>
-        </TableRow>
-      </TableBody>
-    </Table>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderColumn>ID</TableHeaderColumn>
+            <TableHeaderColumn>Name</TableHeaderColumn>
+            <TableHeaderColumn>Status</TableHeaderColumn>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {this.renderRows()}
+        </TableBody>
+      </Table>
     );
   }
 }
