@@ -1,7 +1,12 @@
 import axios from 'axios';
-import {SpecimenViewI} from '../store/initialState';
 
 export const LOAD_SPECIMENS = 'LOAD_SPECIMENS';
+
+export interface SpecimenViewI {
+    id: number;
+    name: string;
+};
+
 export interface SpecimenActionI {
   type: string;
   specimens?: Array<SpecimenViewI>;

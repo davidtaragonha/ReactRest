@@ -5,8 +5,9 @@ import ImageSpecimen from 'material-ui/svg-icons/image/blur-circular';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import SpecimenGrid from '../components/specimenGrid';
 import {connect} from 'react-redux';
-import {StateI, SpecimenStateI} from '../store/initialState';
+import {StateI} from '../store/initialState';
 import {loadSpecimens} from '../actions/specimenAction';
+import {SpecimenStateI} from '../reducers/specimenReducer';
 
 interface ContainerPropsI {
   specimen: SpecimenStateI;

@@ -1,16 +1,23 @@
 import * as React from 'react';
 import {Table, TableBody, TableHeader} from 'material-ui/Table';
 import {TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import {GroupViewI} from '../actions/groupAction';
 
-class GroupGrid extends React.Component<{}, {}> {
-  renderRows(): JSX.Element {
-    return (
-      <TableRow>
-        <TableRowColumn>4</TableRowColumn>
-        <TableRowColumn>Steve Brown</TableRowColumn>
-        <TableRowColumn>Employed</TableRowColumn>
-      </TableRow>
-    );
+interface GridPropsI {
+  store: Array<GroupViewI>;
+};
+
+class GroupGrid extends React.Component<GridPropsI, {}> {
+  renderRows(): JSX.Element[] {
+    return this.props.store.map(item => {
+      return (
+        <TableRow key={item.id}>
+          <TableRowColumn>{item.id}</TableRowColumn>
+          <TableRowColumn>{item.title}</TableRowColumn>
+          <TableRowColumn>{item.title}</TableRowColumn>
+        </TableRow>
+      );
+    });
   }
 
   render() {

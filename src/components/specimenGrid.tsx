@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Table, TableBody, TableHeader} from 'material-ui/Table';
 import {TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import {SpecimenViewI} from '../store/initialState';
+import {SpecimenViewI} from '../actions/specimenAction';
 
 interface GridPropsI {
   store: Array<SpecimenViewI>;
