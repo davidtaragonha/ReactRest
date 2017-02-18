@@ -1,5 +1,7 @@
 import * as React from 'react';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
+import {Avatar} from 'material-ui';
+import ImageGroup from 'material-ui/svg-icons/image/grain';
 import GroupGrid from '../components/groupGrid';
 
 class GroupCardContainer extends React.Component<{}, {}> {
@@ -11,14 +13,13 @@ class GroupCardContainer extends React.Component<{}, {}> {
     return (
       <Card>
        <CardHeader
-         title="GroupGrid"
+         title="Groups"
          subtitle="Maintenance"
+         avatar= {<Avatar icon={<ImageGroup />} />}
        />
        <CardText>
            <GroupGrid />
        </CardText>
-       <CardActions>
-       </CardActions>
      </Card>
     );
   }

@@ -1,11 +1,11 @@
-import {LOAD_SPECIMENS_SUCCESS} from '../actions/specimenAction';
+import {LOAD_SPECIMENS} from '../actions/specimenAction';
 import {SpecimenActionI} from '../actions/specimenAction';
-import initialState from '../store/initialState';
+import initialState, {SpecimenStateI} from '../store/initialState';
 
-export default function specimenReducer(state = initialState.specimen, action: SpecimenActionI): Object {
+export default function specimenReducer(state: SpecimenStateI = initialState, action: SpecimenActionI): SpecimenStateI {
   switch (action.type) {
-    case LOAD_SPECIMENS_SUCCESS:
-      return action.specimens;
+    case LOAD_SPECIMENS:
+      return Object.assign({}, state, {list: action.specimens});
     default:
       return state;
   }

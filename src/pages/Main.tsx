@@ -15,7 +15,7 @@ class Main extends React.Component<MainPropsI, {}> {
       <div>
         <HeaderApp
           title="Infinity"
-          menuItems={[{name:'Specimens', path:'/main/specimens'}, {name:'Groups', path:'/main/groups'}]}
+          menuItems={[{name: 'Specimens', path: '/main/specimens'}, {name: 'Groups', path: '/main/groups'}]}
         />
         {this.props.children}
       </div>

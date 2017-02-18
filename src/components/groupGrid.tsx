@@ -3,10 +3,6 @@ import {Table, TableBody, TableHeader} from 'material-ui/Table';
 import {TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 class GroupGrid extends React.Component<{}, {}> {
-  constructor(props: Object) {
-    super(props);
-  }
-
   renderRows(): JSX.Element {
     return (
       <TableRow>

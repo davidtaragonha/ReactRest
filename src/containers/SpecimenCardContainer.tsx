@@ -1,12 +1,21 @@
 import * as React from 'react';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import {FloatingActionButton} from 'material-ui';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
+import {Avatar, FloatingActionButton} from 'material-ui';
+import ImageSpecimen from 'material-ui/svg-icons/image/blur-circular';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import SpecimenGrid from '../components/specimenGrid';
+import {connect} from 'react-redux';
+import {StateI, SpecimenStateI} from '../store/initialState';
+import {loadSpecimens} from '../actions/specimenAction';
 
-class SpecimenCardContainer extends React.Component<{}, {}> {
-  constructor(props: Object) {
-    super(props);
+interface ContainerPropsI {
+  specimen: SpecimenStateI;
+  loadSpecimens: Function;
+};
+
+class SpecimenCardContainer extends React.Component<ContainerPropsI, {}> {
+  componentDidMount() {
+    this.props.loadSpecimens();
   }
 
   render() {
@@ -15,18 +24,23 @@ class SpecimenCardContainer extends React.Component<{}, {}> {
        <CardHeader
          title="Specimens"
          subtitle="Maintenance"
+         avatar= {<Avatar icon={<ImageSpecimen />} />}
        />
        <CardText>
-         <SpecimenGrid />
+         <SpecimenGrid store={this.props.specimen.list}/>
          <FloatingActionButton>
           <ContentAdd />
         </FloatingActionButton>
        </CardText>
-       <CardActions>
-       </CardActions>
      </Card>
     );
   }
 }
 
-export default SpecimenCardContainer;
+function mapStateToProps(state: StateI): Object {
+  return {
+    specimen: state.specimen
+  };
+}
+
+export default connect(mapStateToProps, {loadSpecimens})(SpecimenCardContainer);

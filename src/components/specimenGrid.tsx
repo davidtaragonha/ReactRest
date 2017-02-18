@@ -1,20 +1,23 @@
 import * as React from 'react';
 import {Table, TableBody, TableHeader} from 'material-ui/Table';
 import {TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import {SpecimenViewI} from '../store/initialState';
 
-class SpecimenGrid extends React.Component<{}, {}> {
-  constructor(props: Object) {
-    super(props);
-  }
+interface GridPropsI {
+  store: Array<SpecimenViewI>;
+};
 
-  renderRows(): JSX.Element {
-    return (
-      <TableRow>
-        <TableRowColumn>4</TableRowColumn>
-        <TableRowColumn>Steve Brown</TableRowColumn>
-        <TableRowColumn>Employed</TableRowColumn>
-      </TableRow>
-    );
+class SpecimenGrid extends React.Component<GridPropsI, {}> {
+  renderRows(): JSX.Element[] {
+    return this.props.store.map(item => {
+        return (
+          <TableRow key={item.id}>
+            <TableRowColumn>{item.id}</TableRowColumn>
+            <TableRowColumn>{item.name}</TableRowColumn>
+            <TableRowColumn>{item.name}</TableRowColumn>
+          </TableRow>
+        );
+    });
   }
 
   render() {

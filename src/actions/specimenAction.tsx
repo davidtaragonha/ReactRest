@@ -1,10 +1,17 @@
-export const LOAD_SPECIMENS_SUCCESS = 'LOAD_SPECIMENS_SUCCESS';
+import axios from 'axios';
+import {SpecimenViewI} from '../store/initialState';
 
+export const LOAD_SPECIMENS = 'LOAD_SPECIMENS';
 export interface SpecimenActionI {
   type: string;
-  specimens: Object;
+  specimens?: Array<SpecimenViewI>;
 }
 
-export function loadSpecimensSuccess(specimens: Object): SpecimenActionI {
-  return {type: LOAD_SPECIMENS_SUCCESS, specimens};
+export function loadSpecimens(): Function {
+  return (dispatch: Function, getState: Function) => {
+    axios.get('https://jsonplaceholder.typicode.com/users')
+      .then((response) => {
+        dispatch({type: LOAD_SPECIMENS, specimens: response.data});
+      });
+  };
 }
